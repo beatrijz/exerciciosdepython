@@ -1,0 +1,10 @@
+import random
+n1 = random.randint(1, 20)
+n2 = random.randint(1, 20)
+n3 = random.randint(1, 20)
+n4 = random.randint(1, 20)
+n5 = random.randint(1, 20)
+tupla = (n1, n2, n3, n4, n5)
+maior_numero = max(tupla)
+menor_numero = min(tupla)
+print (f'O maior número sorteado: {maior_numero} e o menor número: {menor_numero}')
