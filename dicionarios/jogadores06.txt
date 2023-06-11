@@ -1,0 +1,6 @@
+
+Nome: joao
+Quantidade de partidas: 3
+Foi um total de: 7 gols por cada partida.
+Quantidade de gols no campeonato: 3
+

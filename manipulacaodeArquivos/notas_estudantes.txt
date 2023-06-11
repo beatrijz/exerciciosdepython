@@ -1,0 +1,8 @@
+Nome: Bea
+Notas': 10
+Nome: jose
+Notas': 1
+Nome: joao
+Notas': 3
+Nome: joao
+Notas': 41

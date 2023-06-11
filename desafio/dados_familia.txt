@@ -1,8 +1,3 @@
-CPF: 123
-Renda total da famï¿½lia: 700.0
-Nï¿½mero de indivï¿½duos: 2
-Mï¿½dia da renda familiar: 350.0
-
 CPF: 852
 Renda total da famï¿½lia: 400.0
 Nï¿½mero de indivï¿½duos: 2
@@ -13,13 +8,23 @@ Renda total da famï¿½lia: 700.0
 Nï¿½mero de indivï¿½duos: 2
 Mï¿½dia da renda familiar: 350.0
 
-CPF: 741
-Renda total da família: 1485.0
-Número de indivíduos: 3
-Média da renda familiar: 495.0
+CPF: 621
+Renda total da famï¿½lia: 1485.0
+Nï¿½mero de indivï¿½duos: 3
+Mï¿½dia da renda familiar: 495.0
 
 CPF: 741
-Renda total da família: 664.0
-Número de indivíduos: 2
-Média da renda familiar: 332.0
+Renda total da famï¿½lia: 664.0
+Nï¿½mero de indivï¿½duos: 2
+Mï¿½dia da renda familiar: 332.0
+
+CPF: 8282
+Renda total da famï¿½lia: 800.0
+Nï¿½mero de indivï¿½duos: 2
+Mï¿½dia da renda familiar: 400.0
+
+CPF: 6565
+Renda total da famï¿½lia: 1800.0
+Nï¿½mero de indivï¿½duos: 3
+Mï¿½dia da renda familiar: 600.0
 

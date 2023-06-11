@@ -21,42 +21,81 @@ def insercao_familia ():
             file.write(f"Média da renda familiar: {fam['Média da renda familiar']}\n")
             file.write("\n")
 
-insercao_familia ()
-
-
-cpf = str (input('digite o CPF que voce deseja buscar: '))
-
-def busca_dados (cpf):
+def buscarCPF(cpf):
     with open('desafio/dados_familia.txt', 'r') as arquivo:
-        arquivos = arquivo.readlines()
+        linhas = arquivo.readlines()
         encontrado = False
-        for i in range (0, len (arquivos), 3):
-            if arquivos[i].strip() == f"CPF: {cpf}":
-                print(arquivos[i].strip())
-                print(arquivos[i+1].strip())
-                print(arquivos[i+2].strip())
-                print(arquivos[i+3].strip())
-                print()
+        for i in range(len(linhas)):
+            if cpf in linhas[i]:
+                escreva(linhas[i])
+                escreva(linhas[i+1])
+                escreva(linhas[i+2])
+                escreva(linhas[i+3])
                 encontrado = True
                 break
         if not encontrado:
-            print('CPF não encontrado')
-busca_dados(cpf)
+            print('CPF inválido')
+
 
 
 def listagem_de_cpf ():
-    lista_cpf = []
-    for fam in familias:
-        lista_cpf.append(fam ['CPF'])
-
-    print (lista_cpf)
-           
-#listagem_de_cpf ()
+    j = 1
+    with open('desafio/dados_familia.txt', 'r') as arquivo:
+        linhas = arquivo.readlines()
+        for i in range (0, len (linhas), 5):
+            cpf = linhas[i].split(':')[0]
+            num = linhas[i].split(':')[1]
+            escreva (f'{j} - {cpf}: {num}')
+            j +=1
+            
 
 def listagem_dos_dados ():
-    for fam in familias:
-        print (fam)
+        with open('desafio/dados_familia.txt', 'r') as arquivo:
+            linhas = arquivo.readlines()
+            for i in range (0, len (linhas)):
+                fam = linhas[i].strip().split(':')[0:]
+                dados_formatados = ' = '.join(fam)
+                escreva (dados_formatados)
 
-#listagem_dos_dados ()
 
-#def listagem_de_dados_consolidados ()
+
+def listagem_de_dados_consolidados ():
+        for fam in familias:
+            print (fam)
+
+def escreva (txt):
+    print ('     ' + '-' * len (txt) + '     ')
+    print ('    ',txt, '    ')
+
+
+def exibir_menu():
+    escreva ('MENU')
+    escreva ('1 - CADASTRAR FAMÍLIA')
+    escreva ('2 - BUSCAR POR CPF')
+    escreva ('3 - LISTAGEM DE CPFs CADASTRADOS')
+    escreva ('4 - LISTAGEM DOS DADOS DAS FAMÍLIAS')
+    escreva ('5 - LISTAGEM DE DADOS CONSOLIDADOS')
+    escreva ('6 - SAIR')
+
+def escolha(escolha):
+    if escolha == 1:
+        insercao_familia()
+    elif escolha == 2:
+        cpf = str (input('digite o CPF que voce deseja buscar: '))
+        buscarCPF(cpf)
+    elif escolha == 3:
+        listagem_de_cpf ()
+    elif escolha == 4:
+        listagem_dos_dados ()
+    elif escolha == 5:
+        listagem_de_dados_consolidados ()
+    else:
+        print("Escolha inválida")
+
+while True:
+    exibir_menu()
+    opcao = int(input("ESCOLHA A OPÇÃO DESEJADA: "))
+    escolha(opcao)
+    
+    if escolha == 5:
+        break
