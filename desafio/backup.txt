@@ -1,0 +1,16 @@
+12/06/2023 14:52:22hs 15 v1
+CPF =  584.654.147-54
+Renda total da família =  2540.0
+Número de indivíduos =  2
+Média da renda familiar =  1270.0
+
+CPF =  897.547.654-88
+Renda total da família =  89000.0
+Número de indivíduos =  3
+Média da renda familiar =  29666.666666666668
+
+CPF =  654.741.321-85
+Renda total da família =  4640.0
+Número de indivíduos =  3
+Média da renda familiar =  1546.6666666666667
+
