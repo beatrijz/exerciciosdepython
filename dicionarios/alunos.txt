@@ -1,0 +1,20 @@
+Nome: Pedro
+M�dia: 8.0
+Situa��o: Aprovado
+
+Nome: Jo�o
+M�dia: 9.0
+Situa��o: Aprovado
+
+Nome: Beatriz
+M�dia: 9.0
+Situa��o: Aprovado
+
+Nome: Caio
+M�dia: 6.0
+Situa��o: Reprovado
+
+Nome: Paola
+M�dia: 9.0
+Situa��o: Aprovado
+
