@@ -1,4 +1,4 @@
-13/06/2023 18:45:34hs 35 v3
+13/06/2023 18:59:26hs 35 v3
 CPF =  584.654.147-54
 Renda total da família =  2540.0
 Número de indivíduos =  2
