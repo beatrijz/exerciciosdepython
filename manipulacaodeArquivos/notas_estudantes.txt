@@ -1,8 +1,10 @@
-Nome: Bea
-Notas': 10
 Nome: jose
-Notas': 1
+Notas: 10, 15, 20, 30, 40
+Nome: pedro
+Notas: 23, 16, 19, 22
+Nome: suzana
+Notas: 8, 22, 17, 14, 32, 17, 24, 21, 2, 9, 11, 17
+Nome: gisela
+Notas: 12, 28, 21, 45, 26, 10
 Nome: joao
-Notas': 3
-Nome: joao
-Notas': 41
+Notas: 14, 32, 25, 16, 89

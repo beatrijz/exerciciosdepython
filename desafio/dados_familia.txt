@@ -13,3 +13,8 @@ Renda total da família: 4640.0
 Número de indivíduos: 3
 Média da renda familiar: 1546.6666666666667
 
+CPF: 789.456.123-87
+Renda total da família: 3150.0
+Número de indivíduos: 2
+Média da renda familiar: 1575.0
+

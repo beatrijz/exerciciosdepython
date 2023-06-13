@@ -20,7 +20,7 @@ def insercao_familia ():
     individuos ['Número de indivíduos'] = quant_individuos
     individuos ['Média da renda familiar'] = salarios / quant_individuos
     familias.append (individuos)
-    with open('desafio/dados_familia.txt', 'w') as file:
+    with open('desafio/dados_familia.txt', '+a') as file:
         for fam in familias:
             file.write(f"CPF: {fam['CPF']}\n")
             file.write(f"Renda total da família: {fam['Renda total da família']}\n")
@@ -81,9 +81,9 @@ def listagem_de_dados_consolidados():
             cpf = linhas[i].split(':')[1].strip()
             cont_fam += 1
 
-            renda = float(linhas[i + 1].split(':')[1].strip())
+            renda = float(linhas[i + 3].split(':')[1].strip())
             renda_cidade += renda
-            media_cidade = renda_cidade / cont_fam
+            media_cidade = round(renda_cidade / cont_fam)
 
             num_individuos = float(linhas[i + 2].split(':')[1].strip())
             individuos += num_individuos

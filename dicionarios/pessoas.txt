@@ -1,0 +1,15 @@
+Nome: Jo�o
+Sexo: M
+Idade: 20
+
+Nome: Beatriz
+Sexo: F
+Idade: 22
+
+Nome: Maria
+Sexo: F
+Idade: 89
+
+Nome: Jos�
+Sexo: M
+Idade: 69

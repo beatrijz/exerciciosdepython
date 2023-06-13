@@ -2,19 +2,23 @@ alunos = []
 i = 1
 while i <= 5:
     estudante = {}
-    quant_notas = int (input ('Quantidade de notas que o respectivo aluno vai ter: '))
-    estudante ['nome'] = input ('Digite o nome do estudante: ')
+    estudante['nome'] = input('Digite o nome do estudante: ')
+    notas = []
+    
     j = 1
+    quant_notas = int(input('Quantidade de notas que o respectivo aluno vai ter: '))
     while j <= quant_notas:
-        estudante ['nota'] = int(input(f'Digite a {j} nota: '))
+        nota = int(input(f'Digite a {j}ª nota: '))
+        notas.append(nota)
         j += 1
+    
+    estudante['notas'] = notas
+    alunos.append(estudante)
     i += 1
-    alunos.append (estudante)
-    
-    with open('manipulacaodeArquivos/notas_estudantes.txt', 'a') as file:
-        for i in alunos:
-            file.write(f"Nome: {i['nome']}\n")
-            file.write (f"Notas': {i['nota']}\n")
 
-print (alunos)
-    
+with open('manipulacaodeArquivos/notas_estudantes.txt', 'w') as file:
+    for aluno in alunos:
+        file.write(f"Nome: {aluno['nome']}\n")
+        file.write(f"Notas: {', '.join(map(str, aluno['notas']))}\n")
+
+print(alunos)
