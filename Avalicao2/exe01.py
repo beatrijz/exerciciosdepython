@@ -1,4 +1,4 @@
-lista = [1, 2, 3]
+lista = [9, 5, 6]
 
 def cubo(lista):
     listas = []
