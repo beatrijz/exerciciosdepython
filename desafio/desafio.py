@@ -40,77 +40,99 @@ def insercao_familia ():
 
 
 def buscarCPF(cpf):
-    with open('dados_familia.txt', 'r') as arquivo:
-        linhas = arquivo.readlines()
-        encontrado = False
-        for i in range(len(linhas)):
-            if cpf in linhas[i]:
-                escreva(linhas[i])
-                escreva(linhas[i+1])
-                escreva(linhas[i+2])
-                escreva(linhas[i+3])
-                encontrado = True
-                break
-        if not encontrado:
-            print('CPF inválido')
+    try:
+        with open('dados_familia.txt', 'r') as arquivo:
+            linhas = arquivo.readlines()
+            encontrado = False
+            for i in range(len(linhas)):
+                if cpf in linhas[i]:
+                    escreva(linhas[i])
+                    escreva(linhas[i+1])
+                    escreva(linhas[i+2])
+                    escreva(linhas[i+3])
+                    encontrado = True
+                    break
+            if not encontrado:
+                print('CPF inválido')
+    except:
+            escreva ('Não há nenhuma família cadastrada ainda. Por favor, insira alguma informação para que consiga invocar a função com exito.')
+            exibir_menu()
+            opcao = int(input("ESCOLHA A OPÇÃO DESEJADA: "))
+            realizar_escolha(opcao)
 
 
 
 def listagem_de_cpf ():
-    j = 1
-    with open('desafio/dados_familia.txt', 'r') as arquivo:
-        linhas = arquivo.readlines()
-        for i in range (0, len (linhas), 5):
-            cpf = linhas[i].split(':')[0]
-            num = linhas[i].split(':')[1]
-            escreva (f'{j} - {cpf}: {num}')
-            j +=1
-            
+    try:
+        j = 1
+        with open('dados_familia.txt', 'r') as arquivo:
+            linhas = arquivo.readlines()
+            for i in range (0, len (linhas), 5):
+                cpf = linhas[i].split(':')[0]
+                num = linhas[i].split(':')[1]
+                escreva (f'{j} - {cpf}: {num}')
+                j +=1
+    except:
+            escreva ('Não há nenhuma família cadastrada ainda. Por favor, insira alguma informação para que consiga invocar a função com exito.')
+            exibir_menu()
+            opcao = int(input("ESCOLHA A OPÇÃO DESEJADA: "))
+            realizar_escolha(opcao)
 
 def listagem_dos_dados ():
-    with open('dados_familia.txt', 'r') as arquivo:
-        linhas = arquivo.readlines()
-        for i in range (0, len (linhas)):
-            fam = linhas[i].strip().split(':')[0:]
-            dados_formatados = ' = '.join(fam)
-            escreva (dados_formatados)
-
+    try:
+        with open('dados_familia.txt', 'r') as arquivo:
+            linhas = arquivo.readlines()
+            for i in range (0, len (linhas)):
+                fam = linhas[i].strip().split(':')[0:]
+                dados_formatados = ' = '.join(fam)
+                escreva (dados_formatados)
+    except:
+            escreva ('Não há nenhuma família cadastrada ainda. Por favor, insira alguma informação para que consiga invocar a função com exito.')
+            exibir_menu()
+            opcao = int(input("ESCOLHA A OPÇÃO DESEJADA: "))
+            realizar_escolha(opcao)
 
 
 def listagem_de_dados_consolidados():
-    with open('dados_familia.txt', 'r') as arquivo:
-        linhas = arquivo.readlines()
-        cont_fam = 0
-        renda_cidade = 0
-        individuos = 0
-        num_individuos = 0
-        cont_renda = 0
-        cont_renda_maior = 0
+    try:
+        with open('dados_familia.txt', 'r') as arquivo:
+            linhas = arquivo.readlines()
+            cont_fam = 0
+            renda_cidade = 0
+            individuos = 0
+            num_individuos = 0
+            cont_renda = 0
+            cont_renda_maior = 0
 
-        for i in range(0, len(linhas), 5):
-            cpf = linhas[i].split(':')[1].strip()
-            cont_fam += 1
+            for i in range(0, len(linhas), 5):
+                cpf = linhas[i].split(':')[1].strip()
+                cont_fam += 1
 
-            renda = float(linhas[i + 3].split(':')[1].strip())
-            renda_cidade += renda
-            media_cidade = round (renda_cidade / cont_fam)
+                renda = float(linhas[i + 3].split(':')[1].strip())
+                renda_cidade += renda
+                media_cidade = round (renda_cidade / cont_fam)
 
-            num_individuos = float(linhas[i + 2].split(':')[1].strip())
-            individuos += num_individuos
-            media_individuos = round(individuos / cont_fam)
+                num_individuos = float(linhas[i + 2].split(':')[1].strip())
+                individuos += num_individuos
+                media_individuos = round(individuos / cont_fam)
 
-            renda_media_fam = float(linhas[i + 3].split(':')[1].strip())
-            if renda_media_fam < 1320:
-                cont_renda += 1
-            elif renda_media_fam > 13200:
-                cont_renda_maior += 1
+                renda_media_fam = float(linhas[i + 3].split(':')[1].strip())
+                if renda_media_fam < 1320:
+                    cont_renda += 1
+                elif renda_media_fam > 13200:
+                    cont_renda_maior += 1
 
-        percentual = round((cont_renda / cont_fam) * 100)
+            percentual = round((cont_renda / cont_fam) * 100)
 
-        escreva(f'A média da renda familiar da cidade é: R${media_cidade:.2f}')
-        escreva (f'Média de indivíduos por família: {media_individuos}')
-        escreva(f'O percentual de famílias que recebem renda familiar média inferior a 1 salário mínimo é: {percentual}%')
-        escreva(f'Quantidade de famílias com renda familiar média superior a 10 salários mínimos: {cont_renda_maior}')
+            escreva(f'A média da renda familiar da cidade é: R${media_cidade:.2f}')
+            escreva (f'Média de indivíduos por família: {media_individuos}')
+            escreva(f'O percentual de famílias que recebem renda familiar média inferior a 1 salário mínimo é: {percentual}%')
+            escreva(f'Quantidade de famílias com renda familiar média superior a 10 salários mínimos: {cont_renda_maior}')
+    except:
+            escreva ('Não há nenhuma família cadastrada ainda. Por favor, insira alguma informação para que consiga invocar a função com exito.')
+            exibir_menu()
+            opcao = int(input("ESCOLHA A OPÇÃO DESEJADA: "))
+            realizar_escolha(opcao)
 
 ver = 0
 def backup_de_dados():
@@ -137,7 +159,9 @@ def backup_de_dados():
                     arquivo.write(f"{dados_formatados}\n")
     except:
             escreva ('Não há nenhuma família cadastrada ainda. Por favor, insira alguma informação para que consiga invocar a função com exito.')
-            exibir_menu ()
+            exibir_menu()
+            opcao = int(input("ESCOLHA A OPÇÃO DESEJADA: "))
+            realizar_escolha(opcao)
 
             
 def exibir_menu():
