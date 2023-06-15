@@ -1,0 +1,5 @@
+CPF: 89
+Renda total da família: 700.0
+Número de indivíduos: 2
+Média da renda familiar: 350
+

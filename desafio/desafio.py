@@ -21,7 +21,8 @@ def insercao_familia ():
     individuos ['Número de indivíduos'] = quant_individuos
     individuos ['Média da renda familiar'] = round (salarios / quant_individuos)
     familias.append (individuos)
-    with open('desafio/dados_familia.txt', '+a') as file:
+
+    with open('dados_familia.txt', '+a') as file:
         for fam in familias:
             file.write(f"CPF: {fam['CPF']}\n")
             file.write(f"Renda total da família: {fam['Renda total da família']}\n")
@@ -29,9 +30,17 @@ def insercao_familia ():
             file.write(f"Média da renda familiar: {fam['Média da renda familiar']}\n")
             file.write("\n")
 
+    with open('dados_familia.txt', 'r') as arquivo:
+        linhas = arquivo.readlines()
+        for i in range (0, len (linhas)):
+            fam = linhas[i].strip().split(':')[0:]
+            dados_formatados = ' = '.join(fam)
+            escreva (dados_formatados)
+
+
 
 def buscarCPF(cpf):
-    with open('desafio/dados_familia.txt', 'r') as arquivo:
+    with open('dados_familia.txt', 'r') as arquivo:
         linhas = arquivo.readlines()
         encontrado = False
         for i in range(len(linhas)):
@@ -59,7 +68,7 @@ def listagem_de_cpf ():
             
 
 def listagem_dos_dados ():
-    with open('desafio/dados_familia.txt', 'r') as arquivo:
+    with open('dados_familia.txt', 'r') as arquivo:
         linhas = arquivo.readlines()
         for i in range (0, len (linhas)):
             fam = linhas[i].strip().split(':')[0:]
@@ -69,7 +78,7 @@ def listagem_dos_dados ():
 
 
 def listagem_de_dados_consolidados():
-    with open('desafio/dados_familia.txt', 'r') as arquivo:
+    with open('dados_familia.txt', 'r') as arquivo:
         linhas = arquivo.readlines()
         cont_fam = 0
         renda_cidade = 0
@@ -106,25 +115,29 @@ def listagem_de_dados_consolidados():
 ver = 0
 def backup_de_dados():
     global ver
-    ver += 1
-    data_hora_atual = datetime.datetime.now()
-    data_formatada = data_hora_atual.strftime("%d/%m/%Y")
-    hora_formatada = data_hora_atual.strftime("%H:%M:%S")
-    
-    with open('desafio/dados_familia.txt', 'r') as arquivo:
-        linhas = arquivo.readlines()
-        dados_fam = []
-        for linha in linhas:
-            dados_fam.append(linha.strip().split(':'))
-    
-    with open('desafio/backup.txt', 'w') as arquivo:
-            arquivo.write(f"{data_formatada} ")
-            arquivo.write(f"{hora_formatada}hs ")
-            arquivo.write (f"{len(linhas)} ")
-            arquivo.write (f"v{ver}\n")
-            for dados in dados_fam:
-                dados_formatados = ' = '.join(dados)
-                arquivo.write(f"{dados_formatados}\n")
+    try:
+        ver += 1
+        data_hora_atual = datetime.datetime.now()
+        data_formatada = data_hora_atual.strftime("%d/%m/%Y")
+        hora_formatada = data_hora_atual.strftime("%H:%M:%S")
+        
+        with open('dados_familia.txt', 'r') as arquivo:
+            linhas = arquivo.readlines()
+            dados_fam = []
+            for linha in linhas:
+                dados_fam.append(linha.strip().split(':'))
+        
+        with open('desafio/backup.txt', 'w') as arquivo:
+                arquivo.write(f"{data_formatada} ")
+                arquivo.write(f"{hora_formatada}hs ")
+                arquivo.write (f"{len(linhas)} ")
+                arquivo.write (f"v{ver}\n")
+                for dados in dados_fam:
+                    dados_formatados = ' = '.join(dados)
+                    arquivo.write(f"{dados_formatados}\n")
+    except:
+            escreva ('Não há nenhuma família cadastrada ainda. Por favor, insira alguma informação para que consiga invocar a função com exito.')
+            exibir_menu ()
 
             
 def exibir_menu():
@@ -169,7 +182,7 @@ while True:
             break
 
     elif opcao != 7:
-        acao = str(input('DESEJA REALIZAR OUTRA AÇÃO? (S) OU (N): '))
+        acao = str(input('DESEJA REALIZAR OUTRA AÇÃO? (S) OU (N): ')).upper()
         if acao == 'S':
             esc = True
             exibir_menu()
