@@ -1,0 +1,306 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+'''
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    with open('dados_familia.txt', 'r') as arquivo:
+        linhas = arquivo.readlines()
+        for i in range (0, len (linhas)):
+            fam = linhas[i].strip().split(':')[0:]
+            dados_formatados = ' = '.join(fam)
+            escreva (dados_formatados)
+
+        with open('dados_familia.txt', 'r') as arquivo:
+            linhas = arquivo.readlines()
+            encontrado = False
+            for i in range(len(linhas)):
+                if cpf in linhas[i]:''
+                    escreva(linhas[i])
+                    encontrado = True
+                    break
+        with open('dados_familia.txt', 'r') as arquivo:
+            linhas = arquivo.readlines()
+            for i in range (0, len (linhas), 5):
+                cpf = linhas[i].split(':')[0]
+                num = linhas[i].split(':')[1]
+                escreva (f'{j} - {cpf}: {num}')
+                j +=1
+
+def listagem_dos_dados ():
+        with open('dados_familia.txt', 'r') as arquivo:
+            linhas = arquivo.readlines()
+            for i in range (0, len (linhas)):
+                fam = linhas[i].strip().split(':')[0:]
+                dados_formatados = ' = '.join(fam)
+                escreva (dados_formatados)
+ver = 0
+def backup_de_dados():
+    global ver
+    with open('dados_familia.txt', 'r') as arquivo:
+            linhas = arquivo.readlines()
+            dados_fam = []
+            for linha in linhas:
+                dados_fam.append(linha.strip().split(':'))
+        
+    with open('desafio/backup.txt', 'w') as arquivo:
+                for dados in dados_fam:
+                    dados_formatados = ' = '.join(dados)
+                    arquivo.write(f"{dados_formatados}")
+            
+def exibir_menu():
+    escreva ('MENU')
+    escreva ('7 - SAIR')
+
+def realizar_escolha(opcao):
+    if opcao == 1:
+    elif opcao == 7:
+        print()
+    else:
+        print("ESCOLHA INVÁLIDA")
+i = 0
+while True:
+    esc = False
+
+    if i == 0:
+        exibir_menu()
+        opcao = int(input("ESCOLHA A OPÇÃO DESEJADA: "))
+        realizar_escolha(opcao)
+        if opcao == 7:
+            break
+
+
+            if opcao == 7:
+                break
+        else:
+            break
+
+    i += 1
+    def fibonacci (n):
+    if n <= 0:
+        return 0
+    if n == 1 or n == 2:
+        return 1
+    else:
+        return fibonacci(n-1) + fibonacci(n-2)
+
+n = 18
+resultado = fibonacci(n)
+print(f"O {n}º número da sequência de Fibonacci é: {resultado}")'''
